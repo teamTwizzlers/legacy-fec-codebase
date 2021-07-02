@@ -10,6 +10,8 @@ const AskQuestionModal = (props) => {
   const [show, setShow] = useState(props.show);
 
   const onSubmit = (data) => {
+    console.log('onSubmit,', data)
+    console.log('onSubmit productId,', props.productId)
     apiMaster
       .askQuestion(props.productID, data.body, data.name, data.email)
       .then((data) => {

@@ -25,10 +25,11 @@ const QuestionDisplay = (props) => {
     apiMaster
       .getQA(props.productID)
       .then(({ data }) => {
-        data.results.sort((a, b) =>
+        console.log('question:', data)
+        data.sort((a, b) =>
           a.question_helpfulness > b.question_helpfulness ? -1 : 1
         );
-        setQuestions(data.results);
+        setQuestions(data);
       })
       .catch((err) => console.log(err));
   }, [props.productID]);

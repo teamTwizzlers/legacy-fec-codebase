@@ -16,8 +16,9 @@ const Answer = (props) => {
     apiMaster
       .getSpecificAnswers(props.id)
       .then(({ data }) => {
-        setAnswer(data.results);
-        if (data.results.length > 2) setShowMore(true);
+        console.log('answer:', data)
+        setAnswer(data);
+        if (data.length > 2) setShowMore(true);
       })
       .catch((err) => console.log(err));
   }, []);
