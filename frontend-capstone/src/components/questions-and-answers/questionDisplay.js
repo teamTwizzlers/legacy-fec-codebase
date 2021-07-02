@@ -39,7 +39,7 @@ const QuestionDisplay = (props) => {
         {questions.map((question) => {
           if (question.question_body.indexOf(search) > -1) {
             return (
-              <Card key={question.question_id} className="question">
+              <Card key={question._id} className="question">
                 <Card.Header>
                   Q: {question.question_body}{' '}
                   <div style={{ float: 'right' }}>
@@ -49,7 +49,7 @@ const QuestionDisplay = (props) => {
                       style={{ cursor: 'pointer' }}
                       onClick={() => {
                         setq(question.question_body);
-                        setquestionID(question.question_id);
+                        setquestionID(question._id);
                         props.showModal();
                       }}
                     >
@@ -58,7 +58,7 @@ const QuestionDisplay = (props) => {
                     </u>
                   </div>
                 </Card.Header>
-                <Answer id={question.question_id} />
+                <Answer id={question._id} />
               </Card>
             );
           }
@@ -70,12 +70,12 @@ const QuestionDisplay = (props) => {
       <div>
         {questions.slice(0, questionsLen).map((question) => {
           return (
-            <Card key={question.question_id} className="question">
+            <Card key={question._id} className="question">
               <Card.Header>
                 Q: {question.question_body}{' '}
                 <div style={{ float: 'right' }}>
                   <Helpful
-                    id={question.question_id}
+                    id={question._id}
                     widget="question"
                     helpfulCount={question.question_helpfulness}
                   />
@@ -83,7 +83,7 @@ const QuestionDisplay = (props) => {
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
                       setq(question.question_body);
-                      setquestionID(question.question_id);
+                      setquestionID(question._id);
                       props.showModal();
                     }}
                   >
@@ -92,7 +92,7 @@ const QuestionDisplay = (props) => {
                   </u>
                 </div>
               </Card.Header>
-              <Answer id={question.question_id} />
+              <Answer id={question._id} />
             </Card>
           );
         })}

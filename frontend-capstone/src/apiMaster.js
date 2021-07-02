@@ -1,5 +1,6 @@
 import axios from "axios";
 const url = "http://18.224.200.47";
+const qaURL = "http://localhost:3030";
 
 const getProductList = () => {
   return axios.get(`${url}/products`);
@@ -18,7 +19,7 @@ const getRelatedProducts = (id = 1) => {
 };
 
 const getQA = (id = 1) => {
-  return axios.get(`${url}/qa/${id}`);
+  return axios.get(`${qaURL}/qa/${id}`);
 };
 
 const getReviewMetaData = (id = 1) => {
@@ -72,11 +73,11 @@ const addToCart = (user_token, sku_id) => {
 };
 
 const getSpecificAnswers = (questionId) => {
-  return axios.get(`${url}/qa/${questionId}/answers`);
+  return axios.get(`${qaURL}/qa/${questionId}/answers`);
 };
 
 const askQuestion = (id, text, name, email) => {
-  return axios.post(`${url}/qa/${id}`, {
+  return axios.post(`${qaURL}/qa/${id}`, {
     body: text,
     name: name,
     email: email,
@@ -84,7 +85,7 @@ const askQuestion = (id, text, name, email) => {
 };
 
 const answerQuestion = (questionId, text, name, email, photos = []) => {
-  return axios.post(`${url}/qa/${questionId}/answers`, {
+  return axios.post(`${qaURL}/qa/${questionId}/answers`, {
     body: text,
     name: name,
     email: email,
@@ -93,19 +94,19 @@ const answerQuestion = (questionId, text, name, email, photos = []) => {
 };
 
 const markQAsHelpful = (questionId) => {
-  return axios.put(`${url}/qa/question/${questionId}/helpful`);
+  return axios.put(`${qaURL}/qa/question/${questionId}/helpful`);
 };
 
 const reportQuestion = (questionId) => {
-  return axios.put(`${url}/qa/question/${questionId}/report`);
+  return axios.put(`${qaURL}/qa/question/${questionId}/report`);
 };
 
 const markAnsAsHelpful = (answerID) => {
-  return axios.put(`${url}/qa/answer/${answerID}/helpful`);
+  return axios.put(`${qaURL}/qa/answer/${answerID}/helpful`);
 };
 
 const reportAns = (answerID) => {
-  return axios.put(`${url}/qa/answer/${answerID}/report`);
+  return axios.put(`${qaURL}/qa/answer/${answerID}/report`);
 };
 
 const apiMaster = {

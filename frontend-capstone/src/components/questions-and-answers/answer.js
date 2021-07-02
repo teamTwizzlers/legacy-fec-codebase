@@ -33,7 +33,7 @@ const Answer = (props) => {
             : (by = answer.answerer_name);
 
           return (
-            <Card.Body key={answer.answer_id}>
+            <Card.Body key={answer._id}>
               <Card.Title>A: {answer.body}</Card.Title>
               {answer.photos.map((image) => {
                 return (
@@ -45,11 +45,11 @@ const Answer = (props) => {
                 );
               })}
               <Card.Text>
-              <div className='helpful-wrapper'>
-                By: {by}, {date} | 
-                <Helpful id={answer.answer_id} widget='answer' helpfulCount={answer.helpfulness}/>
-                |<Report id={answer.answer_id} widget='answer'/>
-              </div>
+                <div className='helpful-wrapper'>
+                  By: {by}, {date} |
+                  <Helpful id={answer._id} widget='answer' helpfulCount={answer.helpfulness} />
+                  |<Report id={answer._id} widget='answer' />
+                </div>
               </Card.Text>
             </Card.Body>
           );
